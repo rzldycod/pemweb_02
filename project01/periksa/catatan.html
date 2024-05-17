@@ -1,0 +1,20 @@
+<?php
+require_once 'header.php';
+require_once 'sidebar.php';
+
+require '../dbkoneksi.php';
+if (isset($_POST['submit'])) {
+    $_tanggal = $_POST['tanggal'];
+    $_berat = $_POST['berat'];
+    $_tinggi = $_POST['tinggi'];
+    $_tensi = $_POST['tensi'];
+    $_keterangan = $_POST['keterangan'];
+    $_pasien_id = $_POST['pasien_id'];
+    $_dokter_id = $_POST['dokter_id'];
+    $data = [$_tanggal, $_berat, $_tinggi, $_tensi, $_keterangan, $_pasien_id, $_dokter_id, $id];
+    $sql = "INSERT INTO periksa (tanggal, berat, tinggi, tensi, keterangan, pasien_id, dokter_id) VALUES (?,? ,? ,? ,? ,? ,? ,?)";
+    $stmt = $dbh->prepare($sql);
+    $stmt->execute($data);
+    echo "<script>window.location.href = 'index.php';</script>";
+}
+?>
