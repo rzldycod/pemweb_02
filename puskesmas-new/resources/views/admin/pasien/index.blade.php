@@ -28,9 +28,9 @@
                 <td>{{ $pasien->email }}</td>
                 <td>{{ $pasien->alamat }}</td>
                 <td>{{ $pasien->kelurahan_nama }}</td>
-                <td><a href="{{ url('dashboard/pasien/show', $pasien->id) }}" class="text-primary"><i class="far fa-eye"></i>Lihat</a> |
-                        <a href="#" class="text-warning"><i class="far fa-edit"></i> Edit</a> |
-                        <a href="#" class="text-danger"><i class="far fa-trash-alt"></i> Hapus</a></td>
+                <td><a href="{{ url('dashboard/pasien/show', $pasien->id) }}" class="btn btn-info btn-sm"><i class="far fa-eye"></i>Lihat</a> |
+                    <a href="{{ url('dashboard/pasien/edit', $pasien->id) }}" class="btn btn-warning btn-sm"><i class="far fa-edit"></i> Edit</a> |
+                    <a href="{{ url('dashboard/pasien/delete', $pasien->id) }}" class="btn btn-danger"><i class="far fa-trash-alt"></i> Hapus</a></td>
             </tr>
             @endforeach
         </table>
